@@ -1,3 +1,12 @@
 version: '3.9'
 
 services:
+  pwn-i-forgor:
+    restart: always
+    build:
+      context: "./challenges/pwn/i-forgor"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "52760:1337"
+    cap_add:
+      - "SYS_ADMIN"

@@ -1,3 +1,4 @@
+#!/usr/local/bin/bash
 #!/bin/bash
 
 # generates a new challenge subdirectory with default file structure
@@ -69,8 +70,8 @@ LABEL version="0.1"
 LABEL description="$CATEGORY challenge '$NAME' for the UAH Cybersecurity Club's 2022 Week of Welcome CTF."
 RUN /usr/sbin/useradd --no-create-home -u 1000 user
 WORKDIR /home/user
-ADD --chown=root:ctfuser to_copy /home/ctfuser/
-RUN chmod -R 550 /home/ctfuser
+ADD --chown=root:user to_copy /home/user/
+RUN chmod -R 550 /home/user
 COPY start.sh start.sh
 FROM gcr.io/kctf-docker/challenge@sha256:d884e54146b71baf91603d5b73e563eaffc5a42d494b1e32341a5f76363060fb
 COPY --from=chroot / /chroot
@@ -79,9 +80,9 @@ CMD kctf_setup && \
   kctf_drop_privs \
   socat \
   TCP-LISTEN:${PORT},reuseaddr,fork \
-  EXEC:"kctf_pow nsjail --config /home/user/nsjail.cfg -- /home/user/run.sh"
+  EXEC:"kctf_pow nsjail --config /home/user/nsjail.cfg -- /home/user/start.sh"
 EOT
-    cat <<EOT >> ../docker-compose.yaml
+    cat <<EOT >> ../docker-compose.yml
   ${CATEGORY,,}-${NAME,,}:
     restart: always
     build:
