@@ -17,7 +17,7 @@ void setup() {
 void menu() {
     printf("==================================\n");
     printf("Welcome to the random score giver!\n");
-    printf("======================================\n");
+    printf("==================================\n");
     printf("1. Create player\n2. Delete player\n3. Check if player is a high scorer\n4. Set player score\n5. Re-generate random seed for score selection\nSelection: ");
 }
 
