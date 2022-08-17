@@ -8,5 +8,4 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "52760:1337"
-    cap_add:
-      - "SYS_ADMIN"
+    privileged: yes

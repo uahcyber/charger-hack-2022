@@ -34,7 +34,7 @@ if [ ${NEEDS_DOCKER^^} == "Y" ]; then
     cat <<EOT >> ../challenges/$CATEGORY/$NAME/start.sh
 #!/bin/bash
 # BEGIN DONT TOUCH
-cd /home/ctfuser
+cd /home/user
 # END DONT TOUCH
 # modify me to run the challenge
 EOT
@@ -71,16 +71,12 @@ LABEL description="$CATEGORY challenge '$NAME' for the UAH Cybersecurity Club's 
 RUN /usr/sbin/useradd --no-create-home -u 1000 user
 WORKDIR /home/user
 ADD --chown=root:user to_copy /home/user/
-RUN chmod -R 550 /home/user
 COPY start.sh start.sh
+RUN chmod -R 555 /home/user
 FROM gcr.io/kctf-docker/challenge@sha256:d884e54146b71baf91603d5b73e563eaffc5a42d494b1e32341a5f76363060fb
 COPY --from=chroot / /chroot
 COPY nsjail.cfg /home/user/
-CMD kctf_setup && \
-  kctf_drop_privs \
-  socat \
-  TCP-LISTEN:${PORT},reuseaddr,fork \
-  EXEC:"kctf_pow nsjail --config /home/user/nsjail.cfg -- /home/user/start.sh"
+CMD kctf_setup && kctf_drop_privs socat TCP-LISTEN:${PORT},reuseaddr,fork EXEC:"kctf_pow nsjail --config /home/user/nsjail.cfg -- /home/user/start.sh"
 EOT
     cat <<EOT >> ../docker-compose.yml
   ${CATEGORY,,}-${NAME,,}:
@@ -90,6 +86,7 @@ EOT
       dockerfile: "./Dockerfile"
     ports:
       - "$FPORT:$PORT"
+    privileged: yes
 EOT
     echo "Place any final binaries/flag files in $CATEGORY/$NAME/to_copy and modify $CATEGORY/$NAME/start.sh as needed."
     echo "To test the container, run $CATEGORY/$NAME/test.sh as root."
