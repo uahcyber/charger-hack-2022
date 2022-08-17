@@ -22,7 +22,7 @@ RUN apt update && apt install make build-essential -y
 RUN make clean && make
 COPY start.sh start.sh
 RUN chmod -R 555 /home/user
-FROM gcr.io/kctf-docker/challenge@sha256:d884e54146b71baf91603d5b73e563eaffc5a42d494b1e32341a5f76363060fb
+FROM gcr.io/kctf-docker/challenge@sha256:501458c0426acc3b5a74a661791271faf0dca6555b46bfb76f944d2558bd08d5
 COPY --from=chroot / /chroot
 COPY nsjail.cfg /home/user/
 CMD kctf_setup && kctf_drop_privs socat TCP-LISTEN:1337,reuseaddr,fork EXEC:"kctf_pow nsjail --config /home/user/nsjail.cfg -- /home/user/start.sh"
