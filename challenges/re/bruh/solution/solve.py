@@ -3,10 +3,10 @@ bfmap = {
     "on god": "+",
     "frfr": "-",
     "no cap": "[",
-    "bussin": "]",
+    "cap": "]",
     "deadass": ">",
     "sus": "<",
-    "yeet": "."
+    "bussin": "."
 }
 
 with open('../dist/program.fr','r') as fp:
