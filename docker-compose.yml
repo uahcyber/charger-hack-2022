@@ -33,3 +33,11 @@ services:
     ports:
       - "46412:1337"
     privileged: yes
+  web-image2text:
+    restart: always
+    build:
+      context: "./challenges/web/image2text"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "1065:8080"
+    privileged: yes

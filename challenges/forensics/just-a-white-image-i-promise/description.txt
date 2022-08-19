@@ -1,0 +1,1 @@
+Blue noticed some suspicious looking packets containing these white images. Can you figure out what's going on with this sample?
