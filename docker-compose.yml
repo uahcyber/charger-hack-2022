@@ -25,3 +25,11 @@ services:
     ports:
       - "16781:1337"
     privileged: yes
+  pwn-interesting:
+    restart: always
+    build:
+      context: "./challenges/pwn/interesting"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "46412:1337"
+    privileged: yes
