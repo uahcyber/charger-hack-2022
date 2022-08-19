@@ -1,0 +1,18 @@
+This problem relies on 2 things:
+
+* Insecure YAML deserialization allows for construction of arbitrary objects (unsafe_load) -- be careful as this does grant participants arbitrary code execution on the system (although the easiest way to get the flag is to just use the FlagCalculator)
+* Insecure use of ECB allows for folks to brute-force the value of "SECRET" one digit at a time, requiring 256 requests instead of 18446744073709551616 (as a regular brute force would)
+
+The ECB brute force works like this:
+
+- Stuff is encrypted in 16-byte blocks
+- The server signs requests by appending the secret, then encrypting them
+- Encrypting pads stuff out to 16-byte blocks with null bytes
+- By asking the server to sign a single character "c", we get this structure (s represents secret):
+
+csssssssssssssss | s000000000000000
+
+Then, we can ask the server to "encrypt" each of the values "0", "1", "2", ... and when we get one that matches the encrypted value of the last block of the "signature", we have determined the last character of the secret. Repeat (using the known character) to get the second-to-last character, and so on.
+
+After this we can exploit the YAML deserialization bug without running into the "hacker" check that /sign/ does.
+

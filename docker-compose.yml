@@ -8,4 +8,12 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "52760:1337"
-    privileged: yes
+    privileged: yes  
+  crypto-mean-median-blank:
+    restart: always
+    build:
+      context: "./challenges/crypto/mean-median-blank"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "19813:5000"
+    read_only: yes
