@@ -1,0 +1,10 @@
+# Solution
+This challenge uses music cryptography to encrypt a simple message. Music cryptography has been around for centuries as many composers have used it in their music. For example, one of the most popular of these is the (Bach Motif)[https://en.wikipedia.org/wiki/BACH_motif].
+
+When using music to design a cryptographic algorithm, there is one big challenge that always has to be addressed. The musical alphabet only has 7 letters in it. This means that we have to determine a way to expand to be able to represent more information. Perhaps the simplest solution to this problem is to just loop when you get to higher notes. For example, the lowest “A” would be “A”, while the next one above that is and “H”, then an “O, and so on.
+
+Unfortunately, Minecraft only allows 2 octaves of notes on Note blocks which means that exact solution won’t work. That does however provide us with 25 distinct notes that can be produced by the note blocks. This gives us almost the entire alphabet (and who needs the letter “z” anyways?). This gives us an algorithm where the lowest note possible on a note block represents the letter “A” and the highest note represents the letter “Y”.
+
+After this, decrypting the message can be done in one of two ways:
+- Listen to the music, determine what the notes are, then decrypt.
+- Turn on the F3 menu in Minecraft, and look at each note blocks “Note” value. This shows a number between 1-25 which can quickly be converted to a letter of the alphabet.

@@ -1,0 +1,4 @@
+Blue has been taking some music classes and wanted to see if they could combine what they've learned with cryptography. Also, Minecraft...
+
+Note: Challenge files are in attached .zip directory
+Note 2: This challenge uses an non-standard flag format. You should surround your answer with UAH{} and convert your flag to all caps with no spaces when submitting. For example, if you determine that the solution is "example flag" you should submit "UAH{EXAMPLEFLAG}" to this challenge.
