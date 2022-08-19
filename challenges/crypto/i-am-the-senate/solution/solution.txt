@@ -1,0 +1,13 @@
+# Background
+If you are not already familiar with ASCII Encoding, I suggest reading through this short guide created by intel prior to reading this writeup:
+- [ASCII Encoding](https://www.intel.com/content/dam/www/program/education/us/en/documents/the-journery-inside/digital/tji-digital-info-handout4.pdf)
+
+# Solution
+First we start by looking for patterns in the data. There are a couple things that immediately pop out:
+- The data is broken up into sets of 10 characters, where each set of 10 characters is made up of 2 distinct letters.
+- The data is a famous quote from Star Wars
+- The first two letters of each set are in order from the quote
+
+The first two characters in each set map to 0 and 1, and the rest is the ascii representation of a letter of the flag. I chose to solve this using excel, however it would be just as easy to write a quick script to convert both in an out of this format.
+
+
