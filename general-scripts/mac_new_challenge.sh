@@ -111,7 +111,7 @@ LABEL version="0.1"
 LABEL description="$CATEGORY challenge '$NAME' for the UAH Cybersecurity Club's 2022 Week of Welcome CTF."
 RUN /usr/sbin/useradd --no-create-home -u 1000 user
 WORKDIR /home/user
-ADD --chown=root:user to_copy /home/user/
+ADD to_copy /home/user/
 COPY start.sh start.sh
 RUN chmod -R 555 /home/user
 FROM gcr.io/kctf-docker/challenge@sha256:501458c0426acc3b5a74a661791271faf0dca6555b46bfb76f944d2558bd08d5

@@ -17,3 +17,11 @@ services:
     ports:
       - "19813:5000"
     read_only: yes
+  re-go-for-it:
+    restart: always
+    build:
+      context: "./challenges/re/go-for-it"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "16781:1337"
+    privileged: yes
