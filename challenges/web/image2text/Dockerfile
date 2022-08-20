@@ -22,5 +22,6 @@ RUN pip3 install flask Pillow pytesseract
 RUN apt-get update && apt-get install tesseract-ocr -y
 COPY start.sh start.sh
 RUN chmod -R 555 /home/user
+RUN mkdir /home/user/uploads
 RUN chmod -R 666 /home/user/uploads
 CMD bash -c "/home/user/start.sh"
