@@ -59,3 +59,11 @@ services:
     ports:
       - "6369:5000"
     read_only: true
+  pwn-math-homework:
+    restart: always
+    build:
+      context: "./challenges/pwn/math-homework"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "40439:1337"
+    privileged: true
