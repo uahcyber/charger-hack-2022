@@ -1,0 +1,17 @@
+To solve this it can be bruteforced or it can be done by hand using a Vigenere Square. 
+If use the key, which is "Italy", then you first have to align the key and the cipher text by
+repeating the key until the end of the ciphertext.
+
+	NEA RRP XSB SIK ETQ BAE VCQ
+	ITA LYI TAL LYI TAL YIT ALY	
+
+Then you have to find the row of the letter in the key in the Vigenere Square and find 
+the letter in the ciphertext. The column that the ciphertext letter is in will correspond 
+with the plaintext letter. This will leave you with the following. 
+
+	FLA GTH ESQ UAR EIS THE KEY
+
+Which in the proper format is:
+	
+	FLAG{THE_SQUARE_IS_THE_KEY}		
+	
