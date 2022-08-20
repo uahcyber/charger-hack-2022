@@ -5,6 +5,13 @@ Scripts, resources, and challenges for the UAH Cybersecurity Club's 2022 Charger
 Usage
 -----
 
+Have a `.env` file in the root directory of this project with values for the following:
+
+```bash
+CTF_EMAIL=ctfchallemail@gmail.com
+CTF_EMAIL_PASSWORD=supersecretpassword
+```
+
 To create a new challenge, run:
 
 ```bash

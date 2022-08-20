@@ -49,3 +49,14 @@ services:
     ports:
       - "29824:5000"
     read_only: yes
+  web-secret-email:
+    restart: always
+    build:
+      context: "./challenges/web/secret-email"
+      dockerfile: "./Dockerfile"
+    environment:
+      - CTF_EMAIL=${CTF_EMAIL}
+      - CTF_EMAIL_PASSWORD=${CTF_EMAIL_PASSWORD}
+    ports:
+      - "6369:5000"
+    read_only: yes
