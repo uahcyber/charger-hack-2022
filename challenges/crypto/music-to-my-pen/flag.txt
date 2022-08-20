@@ -1,0 +1,1 @@
+flag{dancing_can_solve_any_problem}
