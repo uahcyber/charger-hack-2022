@@ -41,3 +41,11 @@ services:
     ports:
       - "1065:8080"
     privileged: yes
+  web-pints:
+    restart: always
+    build:
+      context: "./challenges/web/pints"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "29824:5000"
+    read_only: yes
