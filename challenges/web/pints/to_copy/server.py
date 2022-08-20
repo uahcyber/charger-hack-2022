@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, abort
+from flask import Flask, abort
 from PIL import Image
 
 app = Flask(__name__)
