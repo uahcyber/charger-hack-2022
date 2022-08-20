@@ -127,7 +127,7 @@ EOT
       dockerfile: "./Dockerfile"
     ports:
       - "$FPORT:$PORT"
-    privileged: yes
+    privileged: true
 EOT
     echo "Place any final binaries/flag files in $CATEGORY/$NAME/to_copy and modify $CATEGORY/$NAME/start.sh as needed."
     echo "To test the container, run $CATEGORY/$NAME/test.sh as root."

@@ -8,7 +8,7 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "52760:1337"
-    privileged: yes  
+    privileged: true
   crypto-mean-median-blank:
     restart: always
     build:
@@ -16,7 +16,7 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "19813:5000"
-    read_only: yes
+    read_only: true
   re-go-for-it:
     restart: always
     build:
@@ -24,7 +24,7 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "16781:1337"
-    privileged: yes
+    privileged: true
   pwn-interesting:
     restart: always
     build:
@@ -32,7 +32,7 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "46412:1337"
-    privileged: yes
+    privileged: true
   web-image2text:
     restart: always
     build:
@@ -40,7 +40,6 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "1065:8080"
-    privileged: yes
   web-pints:
     restart: always
     build:
@@ -48,7 +47,7 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "29824:5000"
-    read_only: yes
+    read_only: true
   web-secret-email:
     restart: always
     build:
@@ -59,4 +58,4 @@ services:
       - CTF_EMAIL_PASSWORD=${CTF_EMAIL_PASSWORD}
     ports:
       - "6369:5000"
-    read_only: yes
+    read_only: true

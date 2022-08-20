@@ -1,1 +1,2 @@
 use an email like: <regularEmail@gmail.com>@c00lblu3h4x0r.gov
+inspired from a hack one of our club members, Wormy, executed on our Discord bot
