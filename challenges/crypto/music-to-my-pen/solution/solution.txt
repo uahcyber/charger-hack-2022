@@ -1,0 +1,5 @@
+This is a cipher based on the Dancing Men Cipher. 
+
+Each character can be decoded to a letter giving the following plain-text: flag dancing can solve any problem
+
+The {} and underscores then have to be added to get the correct flag.
